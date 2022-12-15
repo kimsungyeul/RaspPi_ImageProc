@@ -8,8 +8,8 @@ int main()
 	CV_Assert(image1.data && image2.data);
 
 	Mat dif_img, abs_dif1, abs_dif2;
-	image1.convertTo(image1, CV_16S);
-	image2.convertTo(image2, CV_16S);
+	image1.convertTo(image1, CV_8U);
+	image2.convertTo(image2, CV_8U);
 	subtract(image1, image2, dif_img);
 
 	Rect roi(10, 10, 7, 3);

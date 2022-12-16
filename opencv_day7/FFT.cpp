@@ -26,7 +26,6 @@ void shuffling(Mat mag_img, Mat& dst)
 	mag_img(q3).copyTo(dst(q1));
 	mag_img(q2).copyTo(dst(q4));
 	mag_img(q4).copyTo(dst(q2));
-
 }
 
 Mat scramble(Mat signal)
@@ -85,7 +84,7 @@ void butterfly(Mat& dst, int dir)
 
 				Vec2f G_odd_W(0, 0);
 				G_odd_W[0] = G_odd[0] * wre - G_odd[1] * wim;
-				G_odd_W[1] = G_odd[1] * wre - G_odd[0] * wim;
+				G_odd_W[1] = G_odd[1] * wre + G_odd[0] * wim;
 
 				dst.at<Vec2f>(even) = G_even + G_odd_W;
 				dst.at<Vec2f>(odd) = G_even - G_odd_W;
@@ -146,5 +145,4 @@ int main()
 	imshow("idft_img", img_tmp[0]);
 	waitKey();
 	return 0;
-
 }

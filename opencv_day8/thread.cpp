@@ -17,6 +17,7 @@ int main(){
 	thread(call_from_thread, 0).detach();
 	for(int i = 1; i<10; ++i) {
 		t[i] = thread(call_from_thread, i);
+		t[i].detach();
 	}
 	cout << "메인 함수 시작" << endl;
 
